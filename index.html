@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Store World — سوق خدمات ومواهب مدعوم بالذكاء الاصطناعي">
+  <title>Store World | سوق الخدمات والمواهب</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" data-view="home"><span class="brand-mark">S</span><span>Store <b>World</b></span></a>
+    <nav class="nav">
+      <a href="#marketplace" data-view="marketplace">اكتشف الخدمات</a>
+      <a href="#talent" data-view="talent">المواهب</a>
+      <a href="#ai" data-view="ai">AI Hub</a>
+      <a href="#how" data-view="how">كيف تعمل؟</a>
+    </nav>
+    <div class="actions">
+      <button class="ghost" id="langBtn">EN</button>
+      <button class="ghost" id="loginBtn">تسجيل الدخول</button>
+      <button class="primary" id="joinBtn">ابدأ مجانًا</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <div class="eyebrow">سوق عمل جديد • أدوات AI مجانية • تجربة عربية أولًا</div>
+        <h1>حوّل فكرتك إلى <span>نتيجة.</span><br>وابنِ دخلك من مهارتك.</h1>
+        <p>Store World يجمع العملاء والمستقلين والخدمات وأدوات الذكاء الاصطناعي في مساحة واحدة، أبسط وأسرع وأكثر ذكاءً.</p>
+        <div class="search-box">
+          <span>⌕</span><input id="heroSearch" placeholder="ماذا تريد أن تنجز؟ مثال: تصميم متجر إلكتروني">
+          <button class="primary" id="searchBtn">ابحث الآن</button>
+        </div>
+        <div class="chips"><span>شائع:</span><button>تصميم شعار</button><button>برمجة متجر</button><button>فيديو إعلاني</button><button>كتابة محتوى</button></div>
+      </div>
+      <div class="hero-panel">
+        <div class="float-card card-a"><span>✦</span><div><b>مطابقة ذكية</b><small>أفضل 5 مستقلين لمشروعك</small></div></div>
+        <div class="orb"><div class="orb-core">S</div></div>
+        <div class="float-card card-b"><span>✓</span><div><b>أدوات AI مجانية</b><small>اكتب • صمّم • حلّل • أنجز</small></div></div>
+      </div>
+    </section>
+
+    <section class="trust">
+      <div><b>+12K</b><span>موهبة وخبير</span></div><div><b>+28K</b><span>خدمة منشورة</span></div><div><b>94%</b><span>نسبة رضا</span></div><div><b>24/7</b><span>مساعد ذكي</span></div>
+    </section>
+
+    <section class="section" id="marketplace">
+      <div class="section-head"><div><span class="eyebrow">Marketplace</span><h2>استكشف ما تحتاجه</h2></div><button class="outline" data-view="marketplace">عرض الكل ←</button></div>
+      <div class="category-grid">
+        <button class="category" data-cat="design"><i>✦</i><b>التصميم</b><span>شعارات، UI/UX، هوية</span></button>
+        <button class="category" data-cat="dev"><i>⌘</i><b>البرمجة</b><span>مواقع، تطبيقات، API</span></button>
+        <button class="category" data-cat="marketing"><i>◈</i><b>التسويق</b><span>إعلانات، SEO، محتوى</span></button>
+        <button class="category" data-cat="video"><i>▶</i><b>الفيديو</b><span>مونتاج، موشن، إعلانات</span></button>
+        <button class="category" data-cat="writing"><i>✎</i><b>الكتابة</b><span>مقالات، ترجمة، CV</span></button>
+        <button class="category" data-cat="business"><i>↗</i><b>الأعمال</b><span>استشارات، بيانات، أبحاث</span></button>
+      </div>
+    </section>
+
+    <section class="section soft" id="talent">
+      <div class="section-head"><div><span class="eyebrow">اختيار Store World</span><h2>مواهب جاهزة للعمل</h2></div><button class="outline" data-view="marketplace">تصفح المواهب</button></div>
+      <div class="talent-grid" id="talentGrid"></div>
+    </section>
+
+    <section class="section ai-section" id="ai">
+      <div class="ai-copy"><span class="eyebrow">AI HUB</span><h2>ذكاء اصطناعي يساعدك على إنجاز العمل.</h2><p>مجموعة أدوات مجانية أو مجانية جزئيًا، منظمة حسب المهمة بدل أن تضيع وقتك في البحث.</p><div class="ai-tags"><span>✦ كتابة</span><span>⌘ برمجة</span><span>◉ صور</span><span>▶ فيديو</span><span>♫ صوت</span><span>⌁ بحث</span></div><button class="primary" id="aiBtn">افتح AI Hub</button></div>
+      <div class="ai-console"><div class="console-top"><span>AI Assistant</span><small>● جاهز</small></div><div class="prompt">أريد إطلاق متجر إلكتروني خلال أسبوع…</div><div class="ai-answer"><b>خطة مقترحة</b><ol><li>حدد المنتجات والجمهور المستهدف</li><li>أنشئ الهوية وصفحات المتجر</li><li>اربط الدفع والشحن</li><li>جهّز حملة الإطلاق</li></ol><button>تحسين الخطة بالـAI ↗</button></div></div>
+    </section>
+
+    <section class="section how" id="how">
+      <div class="section-head centered"><div><span class="eyebrow">بسيطة من البداية للنهاية</span><h2>كيف تعمل Store World؟</h2></div></div>
+      <div class="steps"><div><strong>01</strong><h3>صف ما تريد</h3><p>اكتب طلبك بكلماتك. المساعد الذكي يساعدك على تحويله إلى brief واضح.</p></div><div><strong>02</strong><h3>طابق واطلب</h3><p>نقترح عليك الخدمات والمواهب الأنسب حسب الميزانية والوقت والخبرة.</p></div><div><strong>03</strong><h3>أنجز بثقة</h3><p>مساحة مشروع واحدة للرسائل والملفات والمراحل والمراجعات.</p></div></div>
+    </section>
+
+    <section class="cta"><div><span class="eyebrow">ابدأ بدون تعقيد</span><h2>فكرتك تستحق أن ترى النور.</h2><p>أنشئ حسابك مجانًا وابدأ أول مشروع أو أول خدمة لك.</p></div><button class="primary large" id="ctaBtn">إنشاء حساب مجاني ↗</button></section>
+  </main>
+
+  <footer><div class="brand"><span class="brand-mark">S</span><span>Store <b>World</b></span></div><span>© 2026 Store World. منصة عمل وخدمات رقمية.</span><div><a href="#privacy">الخصوصية</a><a href="#terms">الشروط</a></div></footer>
+
+  <div class="modal hidden" id="modal"><div class="modal-box"><button class="close" id="closeModal">×</button><div id="modalContent"></div></div></div>
+  <script src="app.js"></script>
+</body>
+</html>
