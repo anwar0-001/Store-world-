@@ -43,7 +43,7 @@ function renderServices(query=""){
  serviceGrid.querySelectorAll("[data-service]").forEach(b=>b.addEventListener("click",()=>{const s=services.find(x=>x.id===b.dataset.service);if(!s)return;openModal(s.title,'<p>'+escapeHtml(s.desc)+'</p><p><b>مقدم الخدمة:</b> '+escapeHtml(s.provider)+' · <b>السعر يبدأ من:</b> '+s.price+' · <b>التسليم:</b> '+s.days+' أيام</p><button class="primary" id="requestService">طلب هذه الخدمة</button><p style="color:#91a3b8">الطلب تجريبي؛ لا توجد حسابات أو مدفوعات متصلة.</p>');document.getElementById("requestService").onclick=()=>demoAccount("join")}));
  return results.length;
 }
-function renderMarketplace(query=""){return renderServices(query)+renderTalents(query)}
+function renderMarketplace(query=""){document.querySelectorAll(".category").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.cat===activeCategory)));return renderServices(query)+renderTalents(query)}
 function renderTalents(query=""){
  const q=query.trim().toLocaleLowerCase("ar");
  const results=talents.filter(t=>(!activeCategory||t.cat===activeCategory)&&(!q||[t.n,t.r,categoryNames[t.cat]].some(v=>v.toLocaleLowerCase("ar").includes(q))));
