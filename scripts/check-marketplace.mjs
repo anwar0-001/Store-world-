@@ -1,5 +1,6 @@
 import { readFileSync } from 'node:fs';
 import assert from 'node:assert/strict';
+import vm from 'node:vm';
 const html=readFileSync('index.html','utf8');
 const app=readFileSync('app.js','utf8');
 assert.match(html,/بيانات توضيحية فقط/);
@@ -8,4 +9,21 @@ for (const claim of ['+12K', '+28K', '94%', '24/7']) assert.ok(!html.includes(cl
 for (const claim of ['★★★★★', 's.rating', 't.projects']) assert.ok(!app.includes(claim), 'unverified profile claim remains: '+claim);
 assert.match(app,/السعر والمدة استرشاديان/);
 assert.match(app,/لا توجد حسابات أو مدفوعات متصلة/);
+const helperStart=app.indexOf('function toggleSaved(');
+const helperEnd=app.indexOf('\n}',helperStart)+2;
+assert.ok(helperStart>=0&&helperEnd>helperStart,'saved-list persistence helper must exist');
+const helper=app.slice(helperStart,helperEnd);
+const failedSet=new Set(['existing']);
+let refreshes=0;
+const failedContext={localStorage:{setItem(){throw new Error('storage unavailable')}}};
+vm.runInNewContext(helper,failedContext);
+assert.equal(failedContext.toggleSaved(failedSet,'key','new',()=>refreshes++),false);
+assert.deepEqual([...failedSet],['existing'],'failed save must roll back in-memory state');
+assert.equal(refreshes,0,'failed save must not rerender success state');
+const stored={};
+const successContext={localStorage:{setItem(key,value){stored[key]=value}}};
+vm.runInNewContext(helper,successContext);
+assert.equal(successContext.toggleSaved(failedSet,'key','new',()=>refreshes++),true);
+assert.deepEqual(JSON.parse(stored.key),['existing','new']);
+assert.equal(refreshes,1);
 console.log('Marketplace demo-claim checks passed');
