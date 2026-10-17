@@ -1,0 +1,11 @@
+import { readFileSync } from 'node:fs';
+import assert from 'node:assert/strict';
+const html=readFileSync('index.html','utf8');
+const app=readFileSync('app.js','utf8');
+assert.match(html,/بيانات توضيحية فقط/);
+assert.match(html,/ليست ملفات مستقلين متحقق منهم/);
+for (const claim of ['+12K', '+28K', '94%', '24/7']) assert.ok(!html.includes(claim), 'unverified metric remains: '+claim);
+for (const claim of ['★★★★★', 's.rating', 't.projects']) assert.ok(!app.includes(claim), 'unverified profile claim remains: '+claim);
+assert.match(app,/السعر والمدة استرشاديان/);
+assert.match(app,/لا توجد حسابات أو مدفوعات متصلة/);
+console.log('Marketplace demo-claim checks passed');
